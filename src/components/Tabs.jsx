@@ -14,7 +14,7 @@ const Tabs = () => {
                     return (
                         <button 
                             key={index} 
-                            className={`${activeTab == value ? 'text-lg uppercase bg-green-500 px-4 py-2 rounded-lg font-bold active:scale-95 cursor-pointer' : 'text-lg uppercase bg-gray-500 px-4 py-2 rounded-lg font-bold active:scale-95 cursor-pointer'}`}
+                            className={`${activeTab == value ? 'text-lg uppercase bg-green-500 px-4 py-2 rounded-lg active:scale-95 cursor-pointer' : 'text-lg uppercase bg-gray-500 px-4 py-2 rounded-lg active:scale-95 cursor-pointer'}`}
                             onClick={() => {
                                 dispatch(setActiveTab(value))
                             }}
