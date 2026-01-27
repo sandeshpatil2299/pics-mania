@@ -36,9 +36,17 @@ const collectionSlice= createSlice({
 
         toastPopup() {
             toast.success("Added to Collection")
+        },
+
+        toastPopupRemove() {
+            toast.warning("Removed from Collection")
+        },
+
+        toastPopupRemoveCollection() {
+            toast.warn("Removed Collection")
         }
     }
 })
 
-export const {addToCollection, removeFromCollection, clearCollection, toastPopup}= collectionSlice.actions
+export const {addToCollection, removeFromCollection, clearCollection, toastPopup, toastPopupRemove, toastPopupRemoveCollection}= collectionSlice.actions
 export default collectionSlice.reducer
