@@ -1,37 +1,39 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearCollection, removeFromCollection, toastPopupRemove, toastPopupRemoveCollection } from '../Redux/features/collectionSlice'
+import { Link } from 'react-router'
 
 const CollectionPage = () => {
     const collections = useSelector((state) => state.collection.items)
     const dispatch = useDispatch();
 
-    const clearCollection = () => {
+    const clearAllCollection = () => {
         dispatch(clearCollection())
         dispatch(toastPopupRemoveCollection())
+        console.log("clear")
     }
 
     const removeSingleFromCollection = (item) => {
-        dispatch(removeFromCollection(item))
+        dispatch(removeFromCollection(item.id))
         dispatch(toastPopupRemove())
     }
-
-    useEffect(() => {
-
-    }, [removeFromCollection])
 
     return (
         <div className='flex flex-col py-10 px-28'>
             <div className='flex justify-between pb-10'>
                 <h1 className='text-3xl'>Your Collection</h1>
-                <button
-                    className='bg-red-400 font-semibold px-4 py-1 rounded-md cursor-pointer active:scale-95'
-                    onClick={() => {
-                        clearCollection()
-                    }}
-                >
-                    Clear
-                </button>
+                <div className='flex gap-3 items-center'>
+                    <button
+                        className='bg-red-400 font-semibold px-4 py-1 rounded-md cursor-pointer active:scale-95'
+                        onClick={() => {
+                            clearAllCollection()
+                        }}
+                    >
+                        Clear
+                    </button>
+
+                    <Link to={'/'} className='border font-semibold px-4 py-1 rounded-md cursor-pointer active:scale-95'>Search</Link>
+                </div>
             </div>
             <div className='columns-1 gap-4 sm:columns-2 lg:columns-3'>
                 {
