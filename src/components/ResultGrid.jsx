@@ -12,6 +12,8 @@ const ResultGrid = () => {
         try {
             let data = []
 
+            dispatch(setLoading());
+
             if (activeTab == 'photos') {
                 let res = await fetchPhotos(query)
                 data = res.results.map((item) => {
@@ -53,7 +55,7 @@ const ResultGrid = () => {
     }, [query, activeTab])
 
     if (error) return <h1>Error ... </h1>
-    if (loading) return <h1>Loading ... </h1>
+    if (loading) return <h1 className='text-8xl text-center pt-20'>Loading ... </h1>
 
     return (
         <div className='columns-1 gap-4 sm:columns-2 lg:columns-3'>
